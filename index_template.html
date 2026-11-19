@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hellenic Subsidy Screener — Προέλεγχος Επιλεξιμότητας ΕΣΠΑ &amp; ΔΥΠΑ</title>
+  <meta name="description" content="Ανοιχτός, τοπικός προέλεγχος επιλεξιμότητας για επιδοτήσεις ΕΣΠΑ 2021-2027 και ΔΥΠΑ. Έλεγχος ΚΑΔ, ΕΜΕ και ορίου De Minimis 300.000 € στον browser.">
+  <meta name="keywords" content="εσπα 2026, επιδοτησεις επιχειρησεων, δυπα νεα επιχειρηματικοτητα, ξεκινο επιχειρηματικα, ψηφιακος μετασχηματισμος εσπα, de minimis 300000, οπσκε">
+  <meta name="author" content="Conversionlogic">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Hellenic Subsidy Screener — Προέλεγχος Επιλεξιμότητας ΕΣΠΑ &amp; ΔΥΠΑ">
+  <meta property="og:description" content="Ελέγξτε τοπικά στον browser τα επιλέξιμα προγράμματα ΕΣΠΑ και ΔΥΠΑ και τις τυχόν ελλείψεις προϋποθέσεων.">
+  <meta property="og:url" content="https://espa-screener-gr.pages.dev/">
+  <link rel="stylesheet" href="styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "Hellenic Subsidy & NSRF/ΕΣΠΑ Screener",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "All modern browsers",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "EUR"
+        },
+        "description": "Ανεξάρτητο Client-Side εργαλείο προελέγχου επιλεξιμότητας για προγράμματα ΕΣΠΑ και ΔΥΠΑ στην Ελλάδα."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Ποιο είναι το νέο όριο του κανόνα De Minimis;",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Βάσει του Κανονισμού (ΕΕ) 2023/2831 της Ευρωπαϊκής Επιτροπής, από 01/01/2024 έως 31/12/2030 το γενικό ανώτατο όριο ενισχύσεων ήσσονος σημασίας (De Minimis) ανέρχεται στις 300.000 € ανά ενιαία επιχείρηση σε κυλιόμενη τριετία."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Μπορώ να πάρω επιδότηση ΕΣΠΑ αν δηλώσω ως έδρα το σπίτι μου;",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Στα περισσότερα προγράμματα ΕΣΠΑ απαιτείται ρητά αυτόνομος επαγγελματικός χώρος με ηλεκτρονικό μισθωτήριο στο Taxisnet."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- TOP NON-OFFICIAL NOTICE STRIP -->
+  <div class="reg-strip no-print">
+    <div class="container reg-inner">
+      <span>Ανεξάρτητο, Μη Επίσημο Εργαλείο Τεχνικού Προελέγχου · Δεν συνδέεται με ΕΥΔ/ΕΣΠΑ, ΟΠΣΚΕ ή ΔΥΠΑ</span>
+      <span>Τοπική Εκτέλεση (Zero Data Uploads) · Τεχνικός Έλεγχος: 19/11/2026</span>
+    </div>
+  </div>
+
+  <!-- MASTHEAD -->
+  <header class="masthead no-print">
+    <div class="container masthead-inner">
+      <a href="./" class="brand-area">
+        <div class="brand-kicker">CONVERSIONLOGIC · GRANT ELIGIBILITY ASSESSMENT DESK</div>
+        <h1 class="brand-title">Hellenic Subsidy Screener</h1>
+        <p class="brand-sub">Αλγοριθμικός Προέλεγχος Προγραμμάτων ΕΣΠΑ 2021–2027, ΔΥΠΑ &amp; Κανονισμού De Minimis (300.000 €)</p>
+      </a>
+      <div>
+        <a href="#early-access" class="nav-jump">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+          <span>Φάκελος Προετοιμασίας (Waitlist)</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN WORKSPACE -->
+  <main class="container main-wrap">
+
+    <section class="hero-intro">
+      <h2 class="hero-title">Προέλεγχος Επιλεξιμότητας Επιδοτήσεων ΕΣΠΑ &amp; ΔΥΠΑ</h2>
+      <p class="hero-subtitle">
+        Ανοιχτός Προέλεγχος (0€ Validation Mode): λάβετε άμεση ένδειξη επιλεξιμότητας σε 10'' ή συμπληρώστε τα 6 βήματα για πλήρη προ-αξιολόγηση, γέφυρα ρευστότητας ΦΠΑ και όριο De Minimis. <strong>Τελευταία ενημέρωση βάσης προσκλήσεων: 19/11/2026.</strong>
+      </p>
+    </section>
+
+    <!-- QUICK 10-SECOND TRIAGE BAR (GetCalFresh / Byrne's Law Lightweight Screener) -->
+    <section id="quickTriagePanel" class="quick-triage-card no-print" aria-label="Γρήγορος Προέλεγχος 10 Δευτερολέπτων">
+      <div class="triage-header">
+        <div>
+          <span class="brand-kicker">ΓΡΗΓΟΡΟΣ ΠΡΟΕΛΕΓΧΟΣ 10'' · ΑΜΕΣΗ ΕΝΔΕΙΞΗ</span>
+          <h3 class="triage-title">Πού ταιριάζετε με μια πρώτη ματιά;</h3>
+        </div>
+        <span class="triage-note">85% πυρήνα κριτηρίων άμεσα — κατόπιν προαιρετικά τα 6 αναλυτικά βήματα</span>
+      </div>
+      <div class="triage-controls">
+        <div class="field-group">
+          <label for="qtStage">Στάδιο Επιχείρησης</label>
+          <select id="qtStage" class="form-select">
+            <option value="unregistered">Υπό Ίδρυση (Άνεργος / Ιδιώτης)</option>
+            <option value="newborn">Νεοσύστατη (&lt; 1 έτος λειτουργίας)</option>
+            <option value="existing">Υφιστάμενη (&gt; 1 έτος λειτουργίας)</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label for="qtRegion">Περιφέρεια Επένδυσης</label>
+          <select id="qtRegion" class="form-select">
+            <option value="attica">Περιφέρεια Αττικής</option>
+            <option value="central_macedonia">Κεντρική Μακεδονία</option>
+            <option value="islands">Νησιωτική Ελλάδα</option>
+            <option value="mountain_remote">Ορεινή / Απομακρυσμένη</option>
+            <option value="leader_zone">Ζώνη LEADER</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label for="qtDeMinimis">Ληφθέν De Minimis (3ετία)</label>
+          <select id="qtDeMinimis" class="form-select">
+            <option value="0">0 € (Πλήρες περιθώριο 300.000 €)</option>
+            <option value="50000">Έως 50.000 € (Υπόλοιπο 250.000 €)</option>
+            <option value="150000">Έως 150.000 € (Υπόλοιπο 150.000 €)</option>
+            <option value="310000">&gt; 300.000 € (Υπέρβαση Ορίου)</option>
+          </select>
+        </div>
+      </div>
+      <div id="quickTriageResult" class="triage-result" role="status" aria-live="polite"></div>
+    </section>
+
+    <!-- WIZARD PANE -->
+    <div id="wizard-pane" class="wizard-card">
+      <div class="progress-container">
+        <div class="progress-header">
+          <span>Βήμα <span id="current-step-num">1</span> από 6</span>
+          <span class="progress-meta">Κριτήρια Προσκλήσεων ΕΣΠΑ / ΔΥΠΑ</span>
+        </div>
+        <div class="progress-track">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+      </div>
+
+      <!-- Step 1 -->
+      <div id="step-1" class="step-pane active">
+        <div class="step-header">
+          <h3 class="step-title">1. Στάδιο Λειτουργίας Επιχείρησης</h3>
+          <p class="step-desc">Το στάδιο λειτουργίας καθορίζει ποιοι κύκλοι δράσεων είναι νομικά προσβάσιμοι.</p>
+        </div>
+        <div class="options-stack">
+          <div class="option-card selected" data-group="stage" data-value="unregistered">
+            <div class="option-radio"></div>
+            <div class="option-body">
+              <div class="option-title">Υπό Ίδρυση (Ιδιώτης / Εγγεγραμμένος Άνεργος)</div>
+              <div class="option-desc">Δεν έχει γίνει ακόμη έναρξη εργασιών στην ΑΑΔΕ ή σχεδιάζεται νέα δραστηριότητα.</div>
+            </div>
+          </div>
+          <div class="option-card" data-group="stage" data-value="newborn">
+            <div class="option-radio"></div>
+            <div class="option-body">
+              <div class="option-title">Νεοσύστατη Επιχείρηση (&lt; 1 έτος λειτουργίας)</div>
+              <div class="option-desc">Πρόσφατη έναρξη εργασιών χωρίς κλεισμένη πλήρη διαχειριστική χρήση.</div>
+            </div>
+          </div>
+          <div class="option-card" data-group="stage" data-value="existing">
+            <div class="option-radio"></div>
+            <div class="option-body">
+              <div class="option-title">Υφιστάμενη Επιχείρηση (&gt; 1 έτος λειτουργίας)</div>
+              <div class="option-desc">Τουλάχιστον μία κλεισμένη χρήση με υποβληθέν έντυπο Ε3 στην ΑΑΔΕ.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div id="step-2" class="step-pane">
+        <div class="step-header">
+          <h3 class="step-title">2. Προφίλ Ιδρυτή &amp; Προσωπικές Προϋποθέσεις</h3>
+          <p class="step-desc">Προσωπικά κριτήρια συμμετοχής για προγράμματα ίδρυσης (ανεργία ΔΥΠΑ, πτυχίο, ηλικία).</p>
+        </div>
+
+        <div id="dypa-criteria-group" class="field-stack">
+          <label class="checkbox-card">
+            <input type="checkbox" data-field="is_unemployed" checked>
+            <div>
+              <div class="checkbox-title">Εγγεγραμμένος στο Ψηφιακό Μητρώο Ανέργων της ΔΥΠΑ</div>
+              <div class="checkbox-desc">Απαραίτητη προϋπόθεση για τα προγράμματα Νέας Επιχειρηματικότητας ΔΥΠΑ.</div>
+            </div>
+          </label>
+          <label class="checkbox-card">
+            <input type="checkbox" data-field="has_asd" checked>
+            <div>
+              <div class="checkbox-title">Έκδοση Ψηφιακού Ατομικού Σχεδίου Δράσης (ΑΣΔ)</div>
+              <div class="checkbox-desc">Συντάσσεται με εργασιακό σύμβουλο της ΔΥΠΑ μέσω gov.gr.</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="field-stack">
+          <label class="checkbox-card">
+            <input type="checkbox" data-field="has_degree_2016" checked>
+            <div>
+              <div class="checkbox-title">Κάτοχος Πτυχίου ΑΕΙ/ΤΕΙ από 01/01/2016 και μετά</div>
+              <div class="checkbox-desc">Κριτήριο αναφοράς για δράσεις ενίσχυσης πτυχιούχων (100% επιχορήγηση υπό προϋποθέσεις).</div>
+            </div>
+          </label>
+        </div>
+
+        <div id="degree-income-group" class="form-group">
+          <label class="form-label" for="personalIncomeSelect">Ατομικό Φορολογητέο Εισόδημα (τελευταίο εκκαθαριστικό)</label>
+          <select id="personalIncomeSelect" class="form-select" data-field="personal_income">
+            <option value="under_10k" selected>Έως 10.000 € (Εντός βασικού εισοδηματικού ορίου)</option>
+            <option value="10k_to_30k">10.001 € – 30.000 € (Ενδιάμεσο όριο προσκλήσεων πτυχιούχων)</option>
+            <option value="over_30k">Άνω των 30.000 € (Πιθανός αποκλεισμός από προγράμματα πτυχιούχων)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Ηλικιακή Ομάδα Ιδρυτή</label>
+          <div class="options-inline-3">
+            <div class="option-card selected" data-group="founder_age" data-value="under_30">
+              <div class="option-radio"></div>
+              <div class="option-body">
+                <div class="option-title">18 – 29 ετών</div>
+                <div class="option-desc">Νέοι &amp; NEETs</div>
+              </div>
+            </div>
+            <div class="option-card" data-group="founder_age" data-value="30_to_59">
+              <div class="option-radio"></div>
+              <div class="option-body">
+                <div class="option-title">30 – 59 ετών</div>
+                <div class="option-desc">Γενική κατηγορία</div>
+              </div>
+            </div>
+            <div class="option-card" data-group="founder_age" data-value="60_plus">
+              <div class="option-radio"></div>
+              <div class="option-body">
+                <div class="option-title">60+ ετών</div>
+                <div class="option-desc">Ειδικές δράσεις</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="checkbox-card">
+            <input type="checkbox" data-field="military_cleared" checked>
+            <div>
+              <div class="checkbox-title">Εκπληρωμένες ή νόμιμα απαλλαγμένες στρατιωτικές υποχρεώσεις</div>
+              <div class="checkbox-desc">Αφορά άνδρες υποψηφίους για επιδοτούμενα προγράμματα ίδρυσης.</div>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div id="step-3" class="step-pane">
+        <div class="step-header">
+          <h3 class="step-title">3. Κλάδος Δραστηριότητας (ΚΑΔ)</h3>
+          <p class="step-desc">Επιλέξτε τον κύριο τομέα δραστηριότητας βάσει ΚΑΔ έναρξης.</p>
+        </div>
+        <div class="options-stack">
+          <div class="option-card selected" data-group="sector" data-value="services_it">
+            <div class="option-radio"></div>
+            <div class="option-body">
+              <div class="option-title">Πληροφορική, Λογισμικό &amp; Digital Services</div>
+              <div class="option-desc">Ανάπτυξη εφαρμογών, web/cloud υπηρεσίες, data analytics.</div>
+            </div>
+          </div>
+          <div class="option-card" data-group="sector" data-value="consulting_engineering">
+            <div class="option-radio"></div>
+            <div class="option-body">
+              <div class="option-title">Μηχανικοί, Μελέτες &amp; Σύμβουλοι</div>
+              <div class="option-desc">Αρχιτεκτονικά/τεχνικά γραφεία, οικονομολόγοι, συμβουλευτική.</div>
+            </div>
+          </div>
+          <div class="option-card" data-group="sector" data-value="retail_wholesale">
+            <div class="option-radio"></div>
+            <div class="option-body">
+              <div class="option-title">Εμπόριο (Χονδρικό / Λιανικό / E-shop)</div>
+              <div class="option-desc">Εμπορικές επιχειρήσεις, καταστήματα &amp; ηλεκτρονικό εμπόριο.</div>
+            </div>
+          </div>
+          <div class="option-card" data-group="sector" data-value="tourism_hospitality">
+            <div class="option-radio"></div>
+            <div class="option-body">
+              <div class="option-title">Τουρισμός &amp; Καταλύματα</div>
+              <div class="option-desc">Ξενοδοχεία, τουριστικά καταλύματα, τουριστικά γραφεία.</div>
+            </div>
+          </div>
+          <div class="option-card" data-group="sector" data-value="manufacturing_craft">
+            <div class="option-radio"></div>
+            <div class="option-body">
+              <div class="option-title">Μεταποίηση &amp; Βιοτεχνία</div>
+              <div class="option-desc">Παραγωγή προϊόντων, εργαστήρια, συσκευασία, τυποποίηση.</div>
+            </div>
+          </div>
+          <div class="option-card" data-group="sector" data-value="food_dining">
+            <div class="option-radio"></div>
+            <div class="option-body">
+              <div class="option-title">Εστίαση &amp; Καφέ</div>
+              <div class="option-desc">Επιχειρήσεις εστίασης, catering &amp; παρασκευαστήρια τροφίμων.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div id="step-4" class="step-pane">
+        <div class="step-header">
+          <h3 class="step-title">4. Προσωπικό (ΕΜΕ) &amp; Επαγγελματική Έδρα</h3>
+          <p class="step-desc">Οι Ετήσιες Μονάδες Εργασίας (ΕΜΕ) και το καθεστώς έδρας ελέγχονται υποχρεωτικά.</p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="emeSelect">Ετήσιες Μονάδες Εργασίας (ΕΜΕ) Προσωπικού</label>
+          <select id="emeSelect" class="form-select" data-field="eme">
+            <option value="0" selected>0 ΕΜΕ — Χωρίς μισθωτό προσωπικό (Αυτοαπασχόληση)</option>
+            <option value="1">1 ΕΜΕ — Τουλάχιστον 1 εργαζόμενος πλήρους απασχόλησης</option>
+            <option value="2">2 ΕΜΕ — 2 εργαζόμενοι πλήρους απασχόλησης</option>
+            <option value="3">3 έως 5 ΕΜΕ — Μικρή επιχείρηση</option>
+            <option value="6">6+ ΕΜΕ — Αναπτυσσόμενη επιχείρηση</option>
+          </select>
+          <p class="field-hint">Τυπικές προϋποθέσεις υφιστάμενων δράσεων: &ge; 1 ΕΜΕ (Ψηφιακός), &ge; 2 ΕΜΕ (Πράσινος Μετασχηματισμός).</p>
+        </div>
+
+        <div class="form-group">
+          <label class="checkbox-card">
+            <input type="checkbox" data-field="autonomous_office" checked>
+            <div>
+              <div class="checkbox-title">Αυτόνομος Επαγγελματικός Χώρος εκτός οικίας</div>
+              <div class="checkbox-desc">Διάθεση ή πρόθεση μίσθωσης επαγγελματικής έδρας με ηλεκτρονικό μισθωτήριο Taxisnet (χωρίς συστέγαση ή κατοικία).</div>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Step 5 -->
+      <div id="step-5" class="step-pane">
+        <div class="step-header">
+          <h3 class="step-title">5. Περιφέρεια Έδρας &amp; Επενδυτικός Στόχος</h3>
+          <p class="step-desc">Η γεωγραφική ζώνη και ο τύπος δαπανών καθορίζουν ποσοστά και ειδικές δράσεις.</p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="regionSelect">Περιφέρεια Έδρας Επιχείρησης</label>
+          <select id="regionSelect" class="form-select" data-field="region">
+            <option value="attica" selected>Περιφέρεια Αττικής</option>
+            <option value="central_macedonia">Κεντρική Μακεδονία</option>
+            <option value="islands">Νησιωτική Ελλάδα</option>
+            <option value="mountain_remote">Ορεινή ή Απομακρυσμένη Ηπειρωτική Περιοχή</option>
+            <option value="leader_zone">Αγροτική Ζώνη LEADER</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Κύριος Επενδυτικός Στόχος</label>
+          <div class="options-stack">
+            <div class="option-card selected" data-group="investment_goal" data-value="startup_costs">
+              <div class="option-radio"></div>
+              <div class="option-body">
+                <div class="option-title">Ίδρυση &amp; Λειτουργικά Έξοδα (Ενοίκια, ΕΦΚΑ, Πάγια)</div>
+                <div class="option-desc">Κάλυψη πρώτων εξόδων έναρξης λειτουργίας.</div>
+              </div>
+            </div>
+            <div class="option-card" data-group="investment_goal" data-value="digital_software">
+              <div class="option-radio"></div>
+              <div class="option-body">
+                <div class="option-title">Ψηφιακός Εξοπλισμός, E-shop &amp; Λογισμικό</div>
+                <div class="option-desc">ERP/CRM, υπολογιστές, SaaS, ασφάλεια δικτύων.</div>
+              </div>
+            </div>
+            <div class="option-card" data-group="investment_goal" data-value="energy_efficiency">
+              <div class="option-radio"></div>
+              <div class="option-body">
+                <div class="option-title">Εξοικονόμηση Ενέργειας Επαγγελματικού Κτιρίου</div>
+                <div class="option-desc">Αντλίες θερμότητας, μόνωση κελύφους, συστήματα LED.</div>
+              </div>
+            </div>
+            <div class="option-card" data-group="investment_goal" data-value="green_equipment">
+              <div class="option-radio"></div>
+              <div class="option-body">
+                <div class="option-title">Πράσινη Μετάβαση, ΑΠΕ &amp; Πιστοποιήσεις ISO</div>
+                <div class="option-desc">Φωτοβολταϊκά Net Billing, ηλεκτρικά οχήματα, εξοπλισμός παραγωγής.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 6 -->
+      <div id="step-6" class="step-pane">
+        <div class="step-header">
+          <h3 class="step-title">6. Κυλιόμενο Όριο De Minimis &amp; Γέφυρα Ρευστότητας (Μικτό ΦΠΑ)</h3>
+          <p class="step-desc">Έλεγχος ανώτατου ορίου 300.000 € σε κυλιόμενη 3ετία (Καν. ΕΕ 2023/2831) και προαιρετικός υπολογισμός γέφυρας ΦΠΑ (Pro-Rata %).</p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="deMinimisInput">Συνολικές εγκρίσεις De Minimis τελευταίας 3ετίας (€ — αν δεν συμπληρώσετε παρακάτω ημερομηνίες)</label>
+          <input id="deMinimisInput" type="number" class="form-input" data-field="de_minimis_received" min="0" max="1000000" step="100" value="0">
+          <p class="field-hint">Εφόσον δεν έχετε λάβει κρατικές επιδοτήσεις De Minimis την τελευταία 3ετία, αφήστε την τιμή 0 ή καταχωρίστε αναλυτικά τις εγκρίσεις με ημερομηνία παρακάτω.</p>
+        </div>
+
+        <div class="dm-entries-panel">
+          <div class="form-label">Αναλυτικός Έλεγχος Κυλιόμενης 3ετίας De Minimis (Έως 3 Εγγραφές από 19/11/2023)</div>
+          <div class="dm-row">
+            <input type="date" id="dmDate1" class="form-input dm-entry-input" aria-label="Ημερομηνία έγκρισης 1">
+            <input type="number" id="dmAmt1" class="form-input dm-entry-input" min="0" step="100" placeholder="Ποσό € (π.χ. 6500)" aria-label="Ποσό έγκρισης 1">
+          </div>
+          <div class="dm-row">
+            <input type="date" id="dmDate2" class="form-input dm-entry-input" aria-label="Ημερομηνία έγκρισης 2">
+            <input type="number" id="dmAmt2" class="form-input dm-entry-input" min="0" step="100" placeholder="Ποσό €" aria-label="Ποσό έγκρισης 2">
+          </div>
+          <div class="dm-row">
+            <input type="date" id="dmDate3" class="form-input dm-entry-input" aria-label="Ημερομηνία έγκρισης 3">
+            <input type="number" id="dmAmt3" class="form-input dm-entry-input" min="0" step="100" placeholder="Ποσό €" aria-label="Ποσό έγκρισης 3">
+          </div>
+          <p id="dmRollingSummary" class="field-hint">Ενεργή σώρευση 3ετίας (βάσει αναλυτικών εγγραφών): 0 €</p>
+        </div>
+
+        <div class="cash-bridge-box">
+          <div class="form-label">Υπολογιστής Γέφυρας Ρευστότητας &amp; Μικτού Καθεστώτος ΦΠΑ (Pro-Rata %)</div>
+          <div class="cash-bridge-grid">
+            <div>
+              <label class="field-hint" for="capexInput">Επιλέξιμη Επένδυση (€ προ ΦΠΑ)</label>
+              <input id="capexInput" type="number" class="form-input" data-field="capex_eur" min="0" step="500" value="30000">
+            </div>
+            <div>
+              <label class="field-hint" for="subsidyPctInput">Επιδότηση (%)</label>
+              <input id="subsidyPctInput" type="number" class="form-input" data-field="subsidy_pct" min="0" max="100" step="5" value="50">
+            </div>
+            <div>
+              <label class="field-hint" for="vatProRataInput">Εκπιπτόμενος ΦΠΑ Pro-Rata (%)</label>
+              <input id="vatProRataInput" type="number" class="form-input" data-field="vat_pro_rata_pct" min="0" max="100" step="1" value="100">
+            </div>
+          </div>
+          <p id="cashBridgeWizardPreview" class="field-hint">Γέφυρα μετρητών: 22.200 € (Ίδια 15.000 € + ΦΠΑ 24% 7.200 €) · Μόνιμος μη εκπιπτόμενος ΦΠΑ: 0 €</p>
+        </div>
+
+        <div class="tools-bar">
+          <button type="button" id="btnExportP6Json" class="btn">Εξαγωγή JSON</button>
+          <button type="button" id="btnImportP6Json" class="btn">Εισαγωγή JSON</button>
+          <input type="file" id="importP6JsonInput" accept="application/json,.json" class="is-hidden" aria-label="Εισαγωγή αρχείου JSON">
+          <button type="button" id="btnClearP6" class="btn">Καθαρισμός Δεδομένων</button>
+        </div>
+        <p id="p6StorageStatus" class="field-hint" role="status">Τοπική αποθήκευση προσχεδίου (cl_p6_v1) μόνο στον browser κατόπιν επιλογής σας.</p>
+      </div>
+
+      <!-- Wizard Nav -->
+      <div class="wizard-nav">
+        <button type="button" id="btn-prev" class="btn btn-invisible">Προηγούμενο Βήμα</button>
+        <button type="button" id="btn-next" class="btn btn-primary">Επόμενο Βήμα</button>
+      </div>
+    </div>
+
+    <!-- RESULTS PANE (Initially Hidden via CSS class) -->
+    <div id="results-pane" class="is-hidden">
+      <div class="results-header-banner">
+        <div class="stat-box highlight">
+          <span class="stat-label">Εκτιμώμενος Κουμπαράς</span>
+          <span id="stat-total-grant" class="stat-value">0 €</span>
+          <span class="stat-note">Ενδεικτική προ-αξιολόγηση</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-label">Συμβατά (Προ-Αξιολόγηση)</span>
+          <span id="stat-eligible-count" class="stat-value">0</span>
+          <span class="stat-note">Απαιτείται επικύρωση ΟΠΣΚΕ</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-label">Υπό Προϋποθέσεις</span>
+          <span id="stat-conditional-count" class="stat-value">0</span>
+          <span class="stat-note">Απαιτείται πλήρωση όρων</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-label">Περιθώριο De Minimis</span>
+          <span id="stat-deminimis-remain" class="stat-value">300.000 €</span>
+          <span class="stat-note">Καν. (ΕΕ) 2023/2831</span>
+        </div>
+      </div>
+
+      <div id="cashBridgeSummaryRow" class="sheet-block"></div>
+
+      <div class="results-actions no-print">
+        <button type="button" id="btn-print-report" class="btn">Εκτύπωση / PDF (A4)</button>
+        <button type="button" id="btn-copy-report" class="btn">Αντιγραφή Έκθεσης (Markdown)</button>
+        <button type="button" id="btn-restart" class="btn actions-spacer">Επεξεργασία Στοιχείων</button>
+      </div>
+
+      <!-- Institutional Matrix Summary Table -->
+      <div class="sheet-block">
+        <h3 class="sheet-heading">Συγκριτικός Πίνακας Ενδεικτικής Προ-Αξιολόγησης</h3>
+        <div class="table-scroll">
+          <table class="inst-table">
+            <thead>
+              <tr>
+                <th>Πρόγραμμα</th>
+                <th>Προ-Αξιολόγηση</th>
+                <th>Κύριοι Λόγοι</th>
+                <th>Ελλείψεις / Όροι</th>
+                <th>Φορέας, Κατάσταση &amp; Επαλήθευση</th>
+              </tr>
+            </thead>
+            <tbody id="resultsTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Detailed Cards -->
+      <div id="programs-list-container"></div>
+    </div>
+
+    <!-- FAQ SECTION (Native Accessible Details) -->
+    <section class="faq-section">
+      <h3 class="faq-title">Συχνές Ερωτήσεις Κριτηρίων ΕΣΠΑ &amp; ΔΥΠΑ</h3>
+      <details class="faq-item">
+        <summary>Ποιο είναι το όριο σώρευσης De Minimis (Καν. ΕΕ 2023/2831);</summary>
+        <div class="faq-answer">Βάσει του Κανονισμού (ΕΕ) 2023/2831, το γενικό ανώτατο όριο ενισχύσεων ήσσονος σημασίας ανέρχεται στις 300.000 € ανά ενιαία επιχείρηση σε οποιαδήποτε κυλιόμενη περίοδο 3 ετών.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Επιτρέπεται η χρήση κατοικίας ως επαγγελματικής έδρας;</summary>
+        <div class="faq-answer">Στη μεγάλη πλειονότητα των προσκλήσεων ΕΣΠΑ απαιτείται αυτόνομος επαγγελματικός χώρος με καταχωρημένο μισθωτήριο Taxisnet. Η συστέγαση ή έδρα κατοικίας συνήθως αποκλείεται.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Πώς υπολογίζονται οι Ετήσιες Μονάδες Εργασίας (ΕΜΕ);</summary>
+        <div class="faq-answer">Μία ΕΜΕ ισοδυναμεί με έναν εργαζόμενο πλήρους απασχόλησης καθ' όλο το έτος (~300 ημέρες ασφάλισης). Δύο εργαζόμενοι 4ωρης απασχόλησης αντιστοιχούν σε 1 ΕΜΕ.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Ποια είναι η διαφορά μεταξύ επιδότησης ΔΥΠΑ και ΕΣΠΑ;</summary>
+        <div class="faq-answer">Οι δράσεις ΔΥΠΑ απευθύνονται σε εγγεγραμμένους ανέργους με κατ' αποκοπή δόσεις για λειτουργικά έξοδα, ενώ οι προσκλήσεις ΕΣΠΑ επιδοτούν τιμολόγια επενδυτικών σχεδίων μέσω ΟΠΣΚΕ.</div>
+      </details>
+    </section>
+
+    <!-- STATIC ANCHORED EARLY ACCESS WAITLIST -->
+    <section id="early-access" class="early-access-card no-print" aria-labelledby="eaHeading">
+      <div class="ea-grid">
+        <div>
+          <div class="ea-kicker">0€ VALIDATION MODE · CO-CREATION &amp; UPDATES</div>
+          <div class="price-badge-pill">Σχεδιαζόμενο Πακέτο Pro: 19 € (με ΦΠΑ) · 0 € σήμερα · Λίστα Προτεραιότητας</div>
+          <h2 id="eaHeading" class="ea-title">Φάκελος Εσωτερικής Προετοιμασίας ΟΠΣΚΕ &amp; De Minimis (Αυτοαξιολόγηση)</h2>
+          <p class="ea-desc">Η έκθεση προ-αξιολόγησης A4/Markdown παρέχεται ήδη δωρεάν σε 0'' παραπάνω. Το σχεδιαζόμενο πακέτο εστιάζει αποκλειστικά σε αυτοτελή εργαλεία εσωτερικής προετοιμασίας και τεκμηρίωσης της επιχείρησής σας:</p>
+          <ul class="ea-list">
+            <li>Μοντέλο Οικονομικών Προβλέψεων 5ετίας σε Excel (EBITDA, NPV, IRR)</li>
+            <li>Αναλυτικό Checklist 25 Δικαιολογητικών (ΚΑΔ, Ενημερότητες, ΓΕΜΗ) &amp; Οδηγός ΚΑΔ</li>
+            <li>Επεξεργάσιμο Πρότυπο Τεχνικής Περιγραφής ΟΠΣΚΕ (DOCX &amp; Markdown)</li>
+            <li>Εργαλείο Παρακολούθησης Κυλιόμενου Ορίου De Minimis 300.000 € &amp; Offline Web App</li>
+          </ul>
+        </div>
+        <div class="waitlist-box">
+          <div class="waitlist-title">Συμβουλή Χρήστη &amp; Δωρεάν Λίστα (GDPR)</div>
+          <p class="waitlist-sub">Χωρίς χρέωση, χωρίς spam. Αποστολή μόνο ειδοποίησης διάθεσης &amp; νέων προκηρύξεων.</p>
+          <form id="proWaitlistForm" class="waitlist-form" novalidate>
+            <label class="field-label" for="proWaitlistAdvice">Τι μας συμβουλεύετε να προτεραιοποιήσουμε (προαιρετικό);</label>
+            <select id="proWaitlistAdvice" class="form-select">
+              <option value="excel_5yr_npv">Μοντέλο 5ετίας Excel (EBITDA / NPV / IRR)</option>
+              <option value="opske_docs_25">Checklist 25 Δικαιολογητικών ΟΠΣΚΕ</option>
+              <option value="de_minimis_pro_rata">Κυλιόμενο De Minimis &amp; Γέφυρα ΦΠΑ Pro-Rata</option>
+              <option value="new_calls_2027">Ειδοποίηση Νέων Προκηρύξεων ΕΣΠΑ / ΔΥΠΑ</option>
+            </select>
+            <input id="proWaitlistEmail" type="email" class="form-input" placeholder="name@company.gr" required autocomplete="email" aria-label="Email για λίστα αναμονής">
+            <label class="waitlist-consent" for="proWaitlistConsent">
+              <input id="proWaitlistConsent" type="checkbox">
+              <span>Συναινώ ρητά στη συλλογή του email μου αποκλειστικά για ενημέρωση διαθεσιμότητας του Φακέλου Προετοιμασίας, σύμφωνα με την <a href="privacy.html" class="legal-link">Πολιτική Απορρήτου (GDPR)</a>.</span>
+            </label>
+            <button id="proWaitlistBtn" type="submit" class="btn btn-primary">Αποστολή Συμβουλής &amp; Δωρεάν Εγγραφή</button>
+            <div id="proWaitlistStatus" class="waitlist-status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- INSTITUTIONAL FOOTER -->
+  <footer class="site-footer no-print">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3>Μεθοδολογία Κριτηρίων</h3>
+          <p>Ο έλεγχος αποτυπώνει βασικούς κανόνες προσκλήσεων ΕΣΠΑ 2021–2027, ΔΥΠΑ και Κανονισμού (ΕΕ) 2023/2831 περί ενισχύσεων De Minimis έως 300.000 €.</p>
+        </div>
+        <div>
+          <h3>Μη Επίσημο Εργαλείο</h3>
+          <p>Ανεξάρτητο τεχνικό εργαλείο (Conversionlogic). Δεν συνδέεται και δεν εγκρίνεται από το Υπουργείο Εθνικής Οικονομίας, την ΕΥΔ/ΕΣΠΑ, το ΟΠΣΚΕ ή τη ΔΥΠΑ.</p>
+        </div>
+        <div>
+          <h3>Επικύρωση Προκήρυξης</h3>
+          <p>Πριν από οποιαδήποτε έναρξη επιχείρησης ή δαπάνη, επιβεβαιώστε τις ημερομηνίες επιλεξιμότητας δαπανών στο ισχύον ΦΕΚ της εκάστοτε πρόσκλησης.</p>
+        </div>
+      </div>
+      <div class="footer-tools-row">
+        <strong>Εργαλεία Conversionlogic:</strong>
+        <a href="https://athens-rental-monitor.pages.dev/" rel="noopener">Athens Rental</a> ·
+        <a href="https://greek-procurement-radar.pages.dev/" rel="noopener">Procurement Radar</a> ·
+        <a href="https://athens-relocation-matrix.pages.dev/" rel="noopener">Relocation Matrix</a> ·
+        <a href="https://eshop-compliance-doctor.pages.dev/" rel="noopener">eShop Audit</a> ·
+        <a href="https://praktika-gr.pages.dev/" rel="noopener">Praktika GR</a> ·
+        <a href="https://scopekit-gr.pages.dev/" rel="noopener">ScopeKit GR</a>
+      </div>
+      <div class="footer-bottom">
+        <span>Conversionlogic · <a href="privacy.html" class="legal-link">Πολιτική Απορρήτου &amp; Νομική Ενημέρωση (GDPR)</a></span>
+        <span>Τελευταίος Τεχνικός/Νομικός Έλεγχος: 19/11/2026 · 0€ Validation Mode</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="engine.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
